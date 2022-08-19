@@ -89,7 +89,7 @@ public class VistaRefrigerados extends JFrame {
 				
 				Refijerados refri = new Refijerados(codigo, temperatura);
 				if (Ctlrefrigerados.agregarProductoRefijerado(refri)) {
-					JOptionPane.showMessageDialog(null, "se guardo bien");
+					JOptionPane.showMessageDialog(null, "se guardo bien felicitaciones");
 					limpiarcampos();
 				} else {
 					JOptionPane.showMessageDialog(null, "NO se guardo bien");
