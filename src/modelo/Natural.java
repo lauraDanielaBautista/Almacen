@@ -1,23 +1,19 @@
 package modelo;
 
 public class Natural {
-	
+
 	String email;
 	String fechaNacimiento;
-	
+
 	public Natural(String email, String fechaNacimiento) {
 		super();
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
-	
 
 	public Natural() {
 		super();
 	}
-
-
 
 	public String getEmail() {
 		return email;
@@ -34,13 +30,10 @@ public class Natural {
 	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return email + fechaNacimiento;
+	}
 
 }

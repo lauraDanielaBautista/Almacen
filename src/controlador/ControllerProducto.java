@@ -3,31 +3,37 @@ package controlador;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import modelo.Envasados;
 import modelo.Juridica;
+import modelo.Natural;
 import modelo.Perecederos;
 import modelo.Persona;
 import modelo.Productos;
-import modelo.Refijerados;
+import modelo.Refigerados;
 
 public class ControllerProducto {
 	
 	Productos producto = new Productos();
 	Envasados envasados = new  Envasados();
 	Perecederos perecederos = new Perecederos();
-	Refijerados refijerados = new Refijerados();
+	Refigerados refijerados = new Refigerados();
 	
 
 	
-	public List<Productos> pro = new ArrayList();
-	public List<Envasados> enva = new ArrayList();
-	public List<Perecederos> pere = new ArrayList();
-	public List<Refijerados> refi = new ArrayList();	
+	static List<Object> todos = new ArrayList();
+	static List<Productos> pro = new ArrayList();
+	static List<Envasados> enva = new ArrayList();
+	static List<Perecederos> pere = new ArrayList();
+	static List<Refigerados> refi = new ArrayList();
+	
 	
 	
 	//metodo para agregar productos
 	public boolean agregarProducto (Productos producto){
 		pro.add(producto);
+		System.out.print("Lista" + pro);
 		return true;
 		
 		
@@ -36,6 +42,7 @@ public class ControllerProducto {
 	// metodo para agregar productos envasados
 		public boolean agregarProductoEnvasado(Envasados envasados) {
 			enva.add(envasados);
+			System.out.print("Lista" + enva);
 			return true;
 
 		}
@@ -43,16 +50,39 @@ public class ControllerProducto {
 	// metodo para agregar productos perecederos
 		public boolean agregarProductoPerecedero(Perecederos perecederos) {
 			pere.add(perecederos);
+			System.out.print("Lista" + pere);
 			return true;
 
 		}
 		
 	// metodo para agregar productos refijerados
-			public boolean agregarProductoRefijerado(Refijerados refijerados) {
-				refi.add(refijerados);
-				return true;
+		public boolean agregarProductoRefijerado(Refigerados refijerados) {
+			refi.add(refijerados);
+			System.out.print("Lista" + refi);
+			return true;
 
+		}
+		
+		
+		public List<Productos> buscarProductos(int codigo) {
+
+			System.out.println("lista" + pro);
+			
+			for(Productos productobuscado : pro) {
+				if (!productobuscado.equals(codigo)) {
+					JOptionPane.showMessageDialog(null, "se encontro el producto" + productobuscado);
+				} else {
+					JOptionPane.showMessageDialog(null, "NOO se encontro el producto");
 				}
+			}
+				
+			
+			
+			return pro;
+		}
+		
+		
+		
 	// metodo para eliminar producto
 	public Productos eliminarProductos(int codigo){
 		return pro.remove(producto.getCodigo());
@@ -70,7 +100,7 @@ public class ControllerProducto {
 		}
 			
 	// metodo para eliminar productos refijerados
-		public Refijerados eliminarProductosRefijerados(int codigoAprobacion){
+		public Refigerados eliminarProductosRefijerados(int codigoAprobacion){
 			return refi.remove(refijerados.getCodigoAprobacion());
 		}
 		
@@ -94,7 +124,7 @@ public class ControllerProducto {
 	}
 		
 	 //lista productos refijerados
-		public List<Refijerados> obtenerRefijerados(){
+		public List<Refigerados> obtenerRefijerados(){
 			return refi;
 			
 	}
